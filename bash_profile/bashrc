@@ -1,0 +1,20 @@
+##############################
+#
+# Standard AFS ~/.bashrc
+#
+# Modify at your own risk ......
+#
+##############################
+
+. /afs/cad/linux/local/etc/std-bashrc
+
+shopt -s expand_aliases
+
+# anaconda python
+export PATH="/home/y/yx277/Anaconda3/anaconda3/bin:$PATH"
+
+# alias
+source ~/.alias-bashrc
+
+# singularity
+module load singularity

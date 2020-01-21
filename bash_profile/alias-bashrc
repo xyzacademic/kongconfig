@@ -1,0 +1,44 @@
+#!/bin/sh
+
+##################
+# Activate
+#################
+
+# Alias name for login to specific node
+
+alias Node412="qlogin -l hostname=node412 -q datasci"
+alias Node413="qlogin -l hostname=node413 -q datasci"
+alias Node414="qlogin -l hostname=node414 -q datasci"
+alias Node415="qlogin -l hostname=node415 -q datasci"
+alias Node416="qlogin -l hostname=node416 -q datasci"
+alias Node429="qlogin -l hostname=node429 -q datasci"
+alias Node430="qlogin -l hostname=node430 -q datasci"
+alias Node437="qlogin -l hostname=node437 -q datasci"
+alias Node438="qlogin -l hostname=node438 -q datasci3"
+alias Node439="qlogin -l hostname=node439 -q datasci3"
+
+# Check Datasci Node's job running status
+alias Check="qstat -u \* -f -q datasci datasci3 |less"
+
+# Link singularity image as system environment to run python
+alias sp="singularity -s exec --nv --bind /research ~/docker/kongv1.simg python"
+alias python="singularity -s exec --nv --bind /research ~/docker/datasci.sif ~/Anaconda3/anaconda3/bin/python"
+alias ipython="singularity -s exec --nv --bind /research ~/docker/datasci.sif ~/Anaconda3/anaconda3/bin/ipython"
+
+# Check GPU utility status in Datasci Nodes
+alias GPU="sh /home/y/yx277/research/kong_tools/gpu_status.sh"
+
+#ssh
+alias sa="ssh-agent bash"
+alias sg="ssh-add ~/.ssh/id_rsa"
+
+
+##################
+# Expired
+#################
+
+#alias Check="qstat -u \* -f |less"
+#alias rdi2="ssh -i ~/yx19011 yx19011@elf.rdi2.rutgers.edu"
+#alias python="$GLIBC_DIR/ld-2.20.so --library-path $GLIBC_DIR:/lib64:$LD_LIBRARY_PATH:/home/y/yx277/Anaconda3/anaconda3/lib:/usr/lib64:$CUDNN_INCLUDE_DIR:$CUDNN_LIBRARY_PATH /home/y/yx277/Anaconda3/anaconda3/bin/python"
+#alias python="singularity -s exec --nv --bind /research ~/ubuntu.simg ~/Anaconda3/anaconda3/bin/python"
+#alias conda="singularity -s exec --nv --bind /research ~/docker/datasci.sif ~/Anaconda3/anaconda3/bin/conda"
