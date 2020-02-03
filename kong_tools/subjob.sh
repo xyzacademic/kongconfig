@@ -1,6 +1,6 @@
 #!/bin/bash
 
-
+########################
 node="412"
 job_name="job1-${node}"
 currentTime=`date "+%Y-%m-%d %H:%M:%S"`
@@ -17,13 +17,19 @@ cd ..
 echo "
 echo 'job name: ${job_name}
 TimeStamp: ${currentTime}'
-#python evaluate.py --source mnist_scd_v9.pkl --type mode
-#python evaluate.py --source mnist_scd_v15.pkl --type mode
+#python evaluate.py --source mnist_scd_v9.pkl --type mode > pr_1.out
+#python evaluate.py --source mnist_scd_v15.pkl --type mode > pr_2.out
 echo 'hello, world'
 " > ${job_name}.contents
+
 cat ${job_name}.contents >> ${job_name}.sh
 cat ${job_name}.contents >> jobs.LOG
+
+cat ../pr_1.out >> jobs.LOG
+cat ../pr_2.out >> jobs.LOG
+
 qsub -l hostname=node${node} ${job_name}.sh
 rm ${job_name}.contents
 rm ${job_name}.sh
 
+#########################
